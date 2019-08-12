@@ -44,6 +44,9 @@ def get_zips():
     return [item['zip'] for item in get_address_list()]
 
 
+print(get_zips())
+
+
 def get_latlong():
     address = get_zips()
     address_latlong = []
@@ -55,22 +58,25 @@ def get_latlong():
     return address_latlong
 
 
-def write_csv2():
-    """Write the list of Wake Med addresses into a CSV file"""
-    latlong = get_latlong()
-    with open('latlong.csv', 'w', newline='') as myfile:
-        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-        wr.writerow(latlong)
+print(get_latlong())
+
+# def write_csv2():
+#     """Write the list of Wake Med addresses into a CSV file"""
+#     latlong = get_latlong()
+#     with open('latlong.csv', 'w', newline='') as myfile:
+#         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+#         wr.writerow(latlong)
 
 
 # write_csv2()
 
-def get_address_latlong():
-    a = pd.read_csv("address.csv")
-    b = pd.read_csv("latlong.csv")
-    b = b.dropna(axis=1)
-    merged = a.merge(b, on='zip')
-    merged.to_csv("output.csv", index=False)
+
+# def get_address_latlong():
+#     a = pd.read_csv("address.csv")
+#     b = pd.read_csv("latlong.csv")
+#     b = b.dropna(axis=1)
+#     merged = a.merge(b, on='zip')
+#     merged.to_csv("output.csv", index=False)
 
 
-get_address_latlong()
+# get_address_latlong()
